@@ -2,7 +2,7 @@
 
 namespace WenboBao\EasyTDJ\TaoBao;
 
-class ClusterTopClient extends TopClient {
+class ClusterTopClient extends Application {
 
 	private static $dnsconfig;
 	private static $syncDate = 0;

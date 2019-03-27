@@ -2,7 +2,7 @@
 /*
  * This file is part of Laravel Taobao Top Client.
  *
- * (c) wenbobao <515343909@qq.com>
+ * (c) wenbobao <744865006@qq.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.

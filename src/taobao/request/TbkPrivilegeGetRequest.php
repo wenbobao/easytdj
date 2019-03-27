@@ -3,6 +3,7 @@
 namespace WenboBao\EasyTDJ\TaoBao\Request;
 
 use WenboBao\EasyTDJ\TaoBao\RequestCheckUtil;
+
 /**
  * TOP API: taobao.tbk.privilege.get request
  *
@@ -12,19 +13,9 @@ use WenboBao\EasyTDJ\TaoBao\RequestCheckUtil;
 class TbkPrivilegeGetRequest
 {
     /**
-     * 推广位id，mm_xx_xx_xx pid三段式中的第三段
-     **/
-    private $adzoneId;
-
-    /**
      * 淘客商品id
      **/
     private $itemId;
-
-    /**
-     * 营销计划链接中的me参数
-     **/
-    private $me;
 
     /**
      * 1：PC，2：无线，默认：１
@@ -32,22 +23,22 @@ class TbkPrivilegeGetRequest
     private $platform;
 
     /**
+     * 推广位id，mm_xx_xx_xx pid三段式中的第三段
+     **/
+    private $adzoneId;
+
+    /**
      * 备案的网站id, mm_xx_xx_xx pid三段式中的第二段
      **/
     private $siteId;
 
+    /**
+     * 渠道关系ID，仅适用于渠道推广场景
+     **/
+    private $relationId;
+
     private $apiParas = array();
 
-    public function setAdzoneId($adzoneId)
-    {
-        $this->adzoneId = $adzoneId;
-        $this->apiParas["adzone_id"] = $adzoneId;
-    }
-
-    public function getAdzoneId()
-    {
-        return $this->adzoneId;
-    }
 
     public function setItemId($itemId)
     {
@@ -58,17 +49,6 @@ class TbkPrivilegeGetRequest
     public function getItemId()
     {
         return $this->itemId;
-    }
-
-    public function setMe($me)
-    {
-        $this->me = $me;
-        $this->apiParas["me"] = $me;
-    }
-
-    public function getMe()
-    {
-        return $this->me;
     }
 
     public function setPlatform($platform)
@@ -93,6 +73,29 @@ class TbkPrivilegeGetRequest
         return $this->siteId;
     }
 
+    public function setAdzoneId($adzoneId)
+    {
+        $this->adzoneId = $adzoneId;
+        $this->apiParas["adzone_id"] = $adzoneId;
+    }
+
+    public function getAdzoneId()
+    {
+        return $this->adzoneId;
+    }
+
+    public function getRelationId()
+    {
+        return $this->relationId;
+    }
+
+    public function setRelationId($relationId)
+    {
+        $this->relationId = $relationId;
+        $this->apiParas["relation_id"] = $relationId;
+    }
+
+
     public function getApiMethodName()
     {
         return "taobao.tbk.privilege.get";
@@ -105,10 +108,9 @@ class TbkPrivilegeGetRequest
 
     public function check()
     {
-
-        RequestCheckUtil::checkNotNull ($this->adzoneId, "adzoneId");
-        RequestCheckUtil::checkNotNull ($this->itemId, "itemId");
-        RequestCheckUtil::checkNotNull ($this->siteId, "siteId");
+        RequestCheckUtil::checkNotNull($this->adzoneId, "adzoneId");
+        RequestCheckUtil::checkNotNull($this->itemId, "itemId");
+        RequestCheckUtil::checkNotNull($this->siteId, "siteId");
     }
 
     public function putOtherTextParam($key, $value)

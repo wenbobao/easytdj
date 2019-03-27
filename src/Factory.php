@@ -85,7 +85,7 @@ class Factory
      *
      * @return string[]
      */
-    protected function getConfig(string $name, array $config)
+    protected function getConfig($name, array $config)
     {
         if ($name == "taobao") {
             if (!array_key_exists ('app_key', $config) || !array_key_exists ('app_secret', $config)) {
@@ -115,7 +115,7 @@ class Factory
      *
      * @return CloudsearchClient
      */
-    protected function getClient(string $name, array $config)
+    protected function getClient($name, array $config)
     {
         if ($name == "taobao") {
             $c = new TaoBao;
