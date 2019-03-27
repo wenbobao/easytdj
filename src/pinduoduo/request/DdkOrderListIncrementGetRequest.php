@@ -8,6 +8,7 @@ use WenboBao\EasyTDJ\PinDuoDuo\RequestInterface;
 class DdkOrderListIncrementGetRequest implements RequestInterface
 {
     /**
+     * 最后更新时间段增量同步推广订单信息
      * 按照时间段获取授权多多客下面所有多多客的推广订单信息
      * @var string
      */

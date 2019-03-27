@@ -11,13 +11,13 @@ namespace WenboBao\EasyTDJ\PinDuoDuo\Request;
 use WenboBao\EasyTDJ\PinDuoDuo\RequestInterface;
 
 
-class DdkRpPromUrlGenerateRequest implements RequestInterface
+class DdkThemePromUrlGenerateRequest implements RequestInterface
 {
     /**
-     * 生成红包推广链接接口
+     * 多多进宝主题活动推广链接生成
      * @var string
      */
-    private $type = 'pdd.ddk.rp.prom.url.generate';
+    private $type = 'pdd.ddk.theme.prom.url.generate';
 
     /**
      * 推广位ID
@@ -26,10 +26,22 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
     private $pid;
 
     /**
+     * 主题ID列表,例如[1,235]
+     * @var
+     */
+    private $themeIdList;
+
+    /**
      * 是否生成短链接，true-是，false-否
      * @var
      */
     private $generateShortUrl;
+
+    /**
+     * 是否生成手机跳转链接。true-是,false-否,默认false
+     * @var
+     */
+    private $generateMobile;
 
     /**
      * 自定义参数，为链接打上自定义标签。自定义参数最长限制64个字节。
@@ -54,11 +66,7 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
      * @var
      */
     private $weappWebviewUrl;
-    /**
-     * 是否生成小程序推广
-     * @var
-     */
-    private $generateWeApp;
+
 
     public function setType($type)
     {
@@ -110,16 +118,6 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
         return $this->generateWeappWebview;
     }
 
-    public function setGenerateWeApp($generateWeApp)
-    {
-        $this->generateWeApp = $generateWeApp;
-    }
-
-    public function getGenerateWeApp()
-    {
-        return $this->generateWeApp;
-    }
-
     /**
      * @return mixed
      */
@@ -152,18 +150,52 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
         $this->weappWebviewUrl = $weappWebviewUrl;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getThemeIdList()
+    {
+        return $this->themeIdList;
+    }
+
+    /**
+     * @param mixed $themeIdList
+     */
+    public function setThemeIdList($themeIdList)
+    {
+        $this->themeIdList = $themeIdList;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getGenerateMobile()
+    {
+        return $this->generateMobile;
+    }
+
+    /**
+     * @param mixed $generateMobile
+     */
+    public function setGenerateMobile($generateMobile)
+    {
+        $this->generateMobile = $generateMobile;
+    }
+
 
     public function getParams()
     {
         $params = [
             'type' => $this->type,
-            'p_id_list' => $this->pid,
+            'pid' => $this->pid,
+            'theme_id_list' => $this->themeIdList,
             'generate_short_url' => $this->generateShortUrl,
+            'generate_mobile' => $this->generateMobile,
             'custom_parameters' => $this->customParameters,
             'generate_weapp_webview' => $this->generateWeappWebview,
             'we_app_web_view_short_url' => $this->weappWebviewShortUrl,
             'we_app_web_wiew_url' => $this->weappWebviewUrl,
-            'generate_we_app' => $this->generateWeApp,
+
         ];
         return array_filter($params);
     }

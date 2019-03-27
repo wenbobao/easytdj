@@ -55,6 +55,12 @@ class DdkGoodsSearchRequest implements  RequestInterface
     private $rangeList;
 
     /**
+     * 商品类目ID，使用pdd.goods.cats.get接口获取
+     * @var
+     */
+    private $catId;
+
+    /**
      * 商品ID列表。例如：[123456,123]，当入参带有goods_id_list字段，将不会以opt_id、 cat_id、keyword维度筛选商品
      * @var
      */
@@ -71,6 +77,19 @@ class DdkGoodsSearchRequest implements  RequestInterface
      * @var
      */
     private $merchantType;
+
+    /**
+     * 推广位ID
+     * @var
+     */
+    private $pid;
+
+    /**
+     * 自定义参数，为链接打上自定义标签。自定义参数最长限制64个字节。
+     * @var
+     */
+    private $customParameters;
+
 
     public function setType($type)
     {
@@ -182,6 +201,55 @@ class DdkGoodsSearchRequest implements  RequestInterface
         return $this->merchantType;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCatId()
+    {
+        return $this->catId;
+    }
+
+    /**
+     * @param mixed $catId
+     */
+    public function setCatId($catId)
+    {
+        $this->catId = $catId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPid()
+    {
+        return $this->pid;
+    }
+
+    /**
+     * @param mixed $pid
+     */
+    public function setPid($pid)
+    {
+        $this->pid = $pid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomParameters()
+    {
+        return $this->customParameters;
+    }
+
+    /**
+     * @param mixed $customParameters
+     */
+    public function setCustomParameters($customParameters)
+    {
+        $this->customParameters = $customParameters;
+    }
+
+
     public function getParams()
     {
         $params = [
@@ -194,8 +262,11 @@ class DdkGoodsSearchRequest implements  RequestInterface
             'with_coupon'   => $this->withCoupon,
             'range_list'    => $this->rangeList,
             'goods_id_list' => $this->goodsIdList,
+            'cat_id' => $this->catId,
             'zs_duo_id'     => $this->zsduoId,
             'merchant_type' => $this->merchantType,
+            'pid' => $this->pid,
+            'custom_parameters' => $this->customParameters,
         ];
 
         return array_filter($params);
