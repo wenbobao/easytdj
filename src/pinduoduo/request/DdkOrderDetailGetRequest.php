@@ -13,6 +13,10 @@ class DdkOrderDetailGetRequest implements RequestInterface
      */
     private $type = 'pdd.ddk.order.detail.get';
 
+    /**
+     * 订单号
+     * @var string
+     */
     private $orderSN;
 
     public function setType($type)
