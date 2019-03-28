@@ -122,7 +122,7 @@ class DdkGoodsRecommendGetRequest implements RequestInterface
             'channel_type' => intval($this->channelType),
             'pid' => $this->pid,
             'custom_parameters' => $this->custom_parameters,
-        ];
-        return $params;
+        ];        
+        return array_filter($params);
     }
 }

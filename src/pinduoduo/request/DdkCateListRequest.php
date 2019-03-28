@@ -46,6 +46,6 @@ class DdkCateListRequest implements  RequestInterface
             'type'          => $this->type,
             'parent_opt_id' => $this->parent_opt_id
         ];
-        return $params;
+        return array_filter($params);
     }
 }

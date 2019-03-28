@@ -129,14 +129,14 @@ class DdkGoodsDetailRequest implements RequestInterface
 
     public function getParams()
     {
-        return [
+        $params = [
             'type' => $this->type,
             'goods_id_list' => $this->goodsIdList,
             'pid' => $this->pid,
             'custom_parameters' => $this->customParameters,
             'zs_duo_id' => $this->zsduoId,
             'plan_type' => $this->planType
-
         ];
+        return array_filter($params);
     }
 }

@@ -92,11 +92,12 @@ class DdkResourceUrlRequest implements RequestInterface
 
     public function getParams()
     {
-        return [
+        $params = [
             'type' => $this->type,
             'pid' => $this->pid,
             'resource_type' => $this->resourceType,
             'url' => $this->url
         ];
+        return array_filter($params);
     }
 }
