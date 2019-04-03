@@ -258,7 +258,7 @@ class Application
         //解析TOP返回结果
         $respWellFormed = false;
         if ("json" == $this->format) {
-            $respObject = json_decode($resp);
+            $respObject = json_decode($resp, true);
             if (null !== $respObject) {
                 $respWellFormed = true;
                 foreach ($respObject as $propKey => $propValue) {
