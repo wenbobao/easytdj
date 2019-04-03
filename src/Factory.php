@@ -30,7 +30,7 @@ class Factory
     public static function __callStatic($name, $arguments)
     {
         $obj = self::getInstance();
-        return $obj->$name($arguments);
+        return $obj->make ($name, ...$arguments);
     }
 
 
