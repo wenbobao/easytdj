@@ -35,7 +35,7 @@ class JdUnionGoodsPromotiongoodsinfoQueryRequest implements RequestInterface
     /**
      * @param mixed $skuIds
      */
-    public function setSkuIds($skuIds): void
+    public function setSkuIds($skuIds)
     {
         $this->skuIds = $skuIds;
     }

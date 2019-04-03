@@ -60,7 +60,7 @@ class JdUnionPromotionByunionidGetRequest implements RequestInterface
     /**
      * @param mixed $materialId
      */
-    public function setMaterialId($materialId): void
+    public function setMaterialId($materialId)
     {
         $this->materialId = $materialId;
     }
@@ -76,7 +76,7 @@ class JdUnionPromotionByunionidGetRequest implements RequestInterface
     /**
      * @param mixed $positionId
      */
-    public function setPositionId($positionId): void
+    public function setPositionId($positionId)
     {
         $this->positionId = $positionId;
     }
@@ -92,7 +92,7 @@ class JdUnionPromotionByunionidGetRequest implements RequestInterface
     /**
      * @param mixed $unionId
      */
-    public function setUnionId($unionId): void
+    public function setUnionId($unionId)
     {
         $this->unionId = $unionId;
     }
@@ -108,7 +108,7 @@ class JdUnionPromotionByunionidGetRequest implements RequestInterface
     /**
      * @param mixed $pid
      */
-    public function setPid($pid): void
+    public function setPid($pid)
     {
         $this->pid = $pid;
     }
@@ -124,7 +124,7 @@ class JdUnionPromotionByunionidGetRequest implements RequestInterface
     /**
      * @param mixed $couponUrl
      */
-    public function setCouponUrl($couponUrl): void
+    public function setCouponUrl($couponUrl)
     {
         $this->couponUrl = $couponUrl;
     }

@@ -1,22 +1,17 @@
 <?php
 
-namespace WenboBao\EasyTDJ\JingDong\Request;
+namespace WenboBao\EasyTDJ\Apith\Request;
 
-use WenboBao\EasyTDJ\JingDong\RequestInterface;
+use WenboBao\EasyTDJ\Apith\RequestInterface;
 
-
-/**
- * Class JdUnionGoodsSeckillQueryRequest
- * @package WenboBao\EasyTDJ\JingDong\Request
- */
-class JdUnionGoodsSeckillQueryRequest implements RequestInterface
+class JDSeckillGoodsQueryRequest implements RequestInterface
 {
     /**
-     * 秒杀商品查询接口【申请】
-     * @url https://union.jd.com/#/openplatform/api/667
+     * 秒杀商品查询
+     * @url https://doc.apith.cn/#/api/jdunion/querySeckillGoods
      * @var string
      */
-    private $method = 'jd.union.open.goods.seckill.query';
+    private $method = 'querySeckillGoods';
 
     /**
      * 秒杀价区间开始（单位：元）
@@ -325,9 +320,7 @@ class JdUnionGoodsSeckillQueryRequest implements RequestInterface
     {
         $this->owner = $owner;
     }
-
-
-
+    
     /**
      * @return string
      */
@@ -358,12 +351,7 @@ class JdUnionGoodsSeckillQueryRequest implements RequestInterface
             'owner' => $this->owner,
         ];
 
-        return json_encode([
-            'goodsReq' => array_filter ($params, function ($val) {
-                return $val != null;
-            })
-        ]);
+        return array_filter($params);
     }
-
 
 }

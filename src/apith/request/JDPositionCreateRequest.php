@@ -1,22 +1,17 @@
 <?php
 
-namespace WenboBao\EasyTDJ\JingDong\Request;
+namespace WenboBao\EasyTDJ\Apith\Request;
 
-use WenboBao\EasyTDJ\JingDong\RequestInterface;
+use WenboBao\EasyTDJ\Apith\RequestInterface;
 
-
-/**
- * Class JdUnionPositionCreateRequest
- * @package WenboBao\EasyTDJ\JingDong\Request
- */
-class JdUnionPositionCreateRequest implements RequestInterface
+class JDPositionCreateRequest implements RequestInterface
 {
     /**
-     * 查询推广位【申请】
-     * @url https://union.jd.com/#/openplatform/api/655
+     * 推广位创建
+     * @url https://doc.apith.cn/#/api/jdunion/createPosition
      * @var string
      */
-    private $method = 'jd.union.open.position.create';
+    private $method = 'createPosition';
 
     /**
      * 推广位名称集合，英文,分割；上限50
@@ -175,12 +170,6 @@ class JdUnionPositionCreateRequest implements RequestInterface
             'key' => $this->key,
         ];
 
-        return json_encode([
-            'positionReq' => array_filter ($params, function ($val) {
-                return $val != null;
-            })
-        ]);
+        return array_filter($params);
     }
-
-
 }

@@ -71,7 +71,7 @@ class JdUnionPromotionCommonGetRequest implements RequestInterface
     /**
      * @param mixed $subUnionId
      */
-    public function setSubUnionId($subUnionId): void
+    public function setSubUnionId($subUnionId)
     {
         $this->subUnionId = $subUnionId;
     }
@@ -87,7 +87,7 @@ class JdUnionPromotionCommonGetRequest implements RequestInterface
     /**
      * @param mixed $protocol
      */
-    public function setProtocol($protocol): void
+    public function setProtocol($protocol)
     {
         $this->protocol = $protocol;
     }
@@ -103,7 +103,7 @@ class JdUnionPromotionCommonGetRequest implements RequestInterface
     /**
      * @param mixed $ext1
      */
-    public function setExt1($ext1): void
+    public function setExt1($ext1)
     {
         $this->ext1 = $ext1;
     }
@@ -119,7 +119,7 @@ class JdUnionPromotionCommonGetRequest implements RequestInterface
     /**
      * @param mixed $siteId
      */
-    public function setSiteId($siteId): void
+    public function setSiteId($siteId)
     {
         $this->siteId = $siteId;
     }
@@ -135,7 +135,7 @@ class JdUnionPromotionCommonGetRequest implements RequestInterface
     /**
      * @param mixed $materialId
      */
-    public function setMaterialId($materialId): void
+    public function setMaterialId($materialId)
     {
         $this->materialId = $materialId;
     }
@@ -151,7 +151,7 @@ class JdUnionPromotionCommonGetRequest implements RequestInterface
     /**
      * @param mixed $positionId
      */
-    public function setPositionId($positionId): void
+    public function setPositionId($positionId)
     {
         $this->positionId = $positionId;
     }
@@ -167,7 +167,7 @@ class JdUnionPromotionCommonGetRequest implements RequestInterface
     /**
      * @param mixed $pid
      */
-    public function setPid($pid): void
+    public function setPid($pid)
     {
         $this->pid = $pid;
     }

@@ -1,21 +1,17 @@
 <?php
 
-namespace WenboBao\EasyTDJ\JingDong\Request;
+namespace WenboBao\EasyTDJ\Apith\Request;
 
-use WenboBao\EasyTDJ\JingDong\RequestInterface;
+use WenboBao\EasyTDJ\Apith\RequestInterface;
 
-/**
- * Class JdUnionCouponQueryRequest
- * @package WenboBao\EasyTDJ\JingDong\Request
- */
-class JdUnionCouponQueryRequest implements RequestInterface
+class JDCouponQueryRequest implements RequestInterface
 {
     /**
-     * 优惠券领取情况查询接口【申请】
-     * @url https://union.jd.com/#/openplatform/api/627
+     * 优惠券基本信息与状态查询
+     * @url https://doc.apith.cn/#/api/jdunion/queryCoupon
      * @var string
      */
-    private $method = 'jd.union.open.coupon.query';
+    private $method = 'queryCoupon';
 
     /**
      * 优惠券链接集合
@@ -39,7 +35,6 @@ class JdUnionCouponQueryRequest implements RequestInterface
         $this->couponUrls = $couponUrls;
     }
 
-
     /**
      * @return string
      */
@@ -53,11 +48,11 @@ class JdUnionCouponQueryRequest implements RequestInterface
      */
     public function getParamJson()
     {
+        $params = [
+            'couponUrls' => $this->couponUrls,
+        ];
 
-        return json_encode([
-            'couponUrls' => $this->couponUrls
-        ]);
+        return array_filter($params);
     }
-
 
 }

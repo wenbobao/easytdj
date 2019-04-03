@@ -1,22 +1,17 @@
 <?php
 
-namespace WenboBao\EasyTDJ\JingDong\Request;
+namespace WenboBao\EasyTDJ\Apith\Request;
 
-use WenboBao\EasyTDJ\JingDong\RequestInterface;
+use WenboBao\EasyTDJ\Apith\RequestInterface;
 
-
-/**
- * Class JdUnionPositionQueryRequest
- * @package WenboBao\EasyTDJ\JingDong\Request
- */
-class JdUnionPositionQueryRequest implements RequestInterface
+class JDPositionQueryRequest implements RequestInterface
 {
     /**
-     * 查询推广位【申请】
-     * @url https://union.jd.com/#/openplatform/api/656
+     * 推广位查询
+     * @url https://doc.apith.cn/#/api/jdunion/queryPosition
      * @var string
      */
-    private $method = 'jd.union.open.position.query';
+    private $method = 'queryPosition';
 
     /**
      * 联盟推广位类型，1：cps推广位 2：cpc推广位
@@ -150,12 +145,6 @@ class JdUnionPositionQueryRequest implements RequestInterface
             'pageIndex' => $this->pageIndex,
         ];
 
-        return json_encode([
-            'positionReq' => array_filter ($params, function ($val) {
-                return $val != null;
-            })
-        ]);
+        return array_filter($params);
     }
-
-
 }

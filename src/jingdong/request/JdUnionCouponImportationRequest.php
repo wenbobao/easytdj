@@ -41,7 +41,7 @@ class JdUnionCouponImportationRequest implements RequestInterface
     /**
      * @param mixed $skuId
      */
-    public function setSkuId($skuId): void
+    public function setSkuId($skuId)
     {
         $this->skuId = $skuId;
     }
@@ -57,7 +57,7 @@ class JdUnionCouponImportationRequest implements RequestInterface
     /**
      * @param mixed $couponLink
      */
-    public function setCouponLink($couponLink): void
+    public function setCouponLink($couponLink)
     {
         $this->couponLink = $couponLink;
     }

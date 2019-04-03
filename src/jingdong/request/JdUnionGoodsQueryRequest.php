@@ -154,7 +154,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $isPG
      */
-    public function setIsPG($isPG): void
+    public function setIsPG($isPG)
     {
         $this->isPG = $isPG;
     }
@@ -170,7 +170,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $skuIds
      */
-    public function setSkuIds($skuIds): void
+    public function setSkuIds($skuIds)
     {
         $this->skuIds = $skuIds;
     }
@@ -186,7 +186,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $sort
      */
-    public function setSort($sort): void
+    public function setSort($sort)
     {
         $this->sort = $sort;
     }
@@ -202,7 +202,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $keyword
      */
-    public function setKeyword($keyword): void
+    public function setKeyword($keyword)
     {
         $this->keyword = $keyword;
     }
@@ -218,7 +218,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $cid3
      */
-    public function setCid3($cid3): void
+    public function setCid3($cid3)
     {
         $this->cid3 = $cid3;
     }
@@ -234,7 +234,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $cid2
      */
-    public function setCid2($cid2): void
+    public function setCid2($cid2)
     {
         $this->cid2 = $cid2;
     }
@@ -250,7 +250,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $cid1
      */
-    public function setCid1($cid1): void
+    public function setCid1($cid1)
     {
         $this->cid1 = $cid1;
     }
@@ -266,7 +266,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $pageSize
      */
-    public function setPageSize($pageSize): void
+    public function setPageSize($pageSize)
     {
         $this->pageSize = $pageSize;
     }
@@ -282,7 +282,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $isHot
      */
-    public function setIsHot($isHot): void
+    public function setIsHot($isHot)
     {
         $this->isHot = $isHot;
     }
@@ -298,7 +298,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $priceto
      */
-    public function setPriceto($priceto): void
+    public function setPriceto($priceto)
     {
         $this->priceto = $priceto;
     }
@@ -314,7 +314,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $pingouPriceEnd
      */
-    public function setPingouPriceEnd($pingouPriceEnd): void
+    public function setPingouPriceEnd($pingouPriceEnd)
     {
         $this->pingouPriceEnd = $pingouPriceEnd;
     }
@@ -330,7 +330,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $sortName
      */
-    public function setSortName($sortName): void
+    public function setSortName($sortName)
     {
         $this->sortName = $sortName;
     }
@@ -346,7 +346,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $pricefrom
      */
-    public function setPricefrom($pricefrom): void
+    public function setPricefrom($pricefrom)
     {
         $this->pricefrom = $pricefrom;
     }
@@ -362,7 +362,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $pingouPriceStart
      */
-    public function setPingouPriceStart($pingouPriceStart): void
+    public function setPingouPriceStart($pingouPriceStart)
     {
         $this->pingouPriceStart = $pingouPriceStart;
     }
@@ -378,7 +378,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $pageIndex
      */
-    public function setPageIndex($pageIndex): void
+    public function setPageIndex($pageIndex)
     {
         $this->pageIndex = $pageIndex;
     }
@@ -394,7 +394,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $commissionShareEnd
      */
-    public function setCommissionShareEnd($commissionShareEnd): void
+    public function setCommissionShareEnd($commissionShareEnd)
     {
         $this->commissionShareEnd = $commissionShareEnd;
     }
@@ -410,7 +410,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $brandCode
      */
-    public function setBrandCode($brandCode): void
+    public function setBrandCode($brandCode)
     {
         $this->brandCode = $brandCode;
     }
@@ -426,7 +426,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $shopId
      */
-    public function setShopId($shopId): void
+    public function setShopId($shopId)
     {
         $this->shopId = $shopId;
     }
@@ -442,7 +442,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $owner
      */
-    public function setOwner($owner): void
+    public function setOwner($owner)
     {
         $this->owner = $owner;
     }
@@ -458,7 +458,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $isCoupon
      */
-    public function setIsCoupon($isCoupon): void
+    public function setIsCoupon($isCoupon)
     {
         $this->isCoupon = $isCoupon;
     }
@@ -474,7 +474,7 @@ class JdUnionGoodsQueryRequest implements RequestInterface
     /**
      * @param mixed $commissionShareStart
      */
-    public function setCommissionShareStart($commissionShareStart): void
+    public function setCommissionShareStart($commissionShareStart)
     {
         $this->commissionShareStart = $commissionShareStart;
     }

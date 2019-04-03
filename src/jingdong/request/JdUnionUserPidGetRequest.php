@@ -59,7 +59,7 @@ class JdUnionUserPidGetRequest implements RequestInterface
     /**
      * @param mixed $promotionType
      */
-    public function setPromotionType($promotionType): void
+    public function setPromotionType($promotionType)
     {
         $this->promotionType = $promotionType;
     }
@@ -75,7 +75,7 @@ class JdUnionUserPidGetRequest implements RequestInterface
     /**
      * @param mixed $mediaName
      */
-    public function setMediaName($mediaName): void
+    public function setMediaName($mediaName)
     {
         $this->mediaName = $mediaName;
     }
@@ -91,7 +91,7 @@ class JdUnionUserPidGetRequest implements RequestInterface
     /**
      * @param mixed $childUnionId
      */
-    public function setChildUnionId($childUnionId): void
+    public function setChildUnionId($childUnionId)
     {
         $this->childUnionId = $childUnionId;
     }
@@ -107,7 +107,7 @@ class JdUnionUserPidGetRequest implements RequestInterface
     /**
      * @param mixed $unionId
      */
-    public function setUnionId($unionId): void
+    public function setUnionId($unionId)
     {
         $this->unionId = $unionId;
     }
@@ -123,7 +123,7 @@ class JdUnionUserPidGetRequest implements RequestInterface
     /**
      * @param mixed $positionName
      */
-    public function setPositionName($positionName): void
+    public function setPositionName($positionName)
     {
         $this->positionName = $positionName;
     }

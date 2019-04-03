@@ -1,28 +1,17 @@
 <?php
 
-namespace WenboBao\EasyTDJ\JingDong\Request;
+namespace WenboBao\EasyTDJ\Apith\Request;
 
-use WenboBao\EasyTDJ\JingDong\RequestInterface;
+use WenboBao\EasyTDJ\Apith\RequestInterface;
 
-
-/**
- * Class JdUnionPromotionBysubunionidGetRequest
- * @package WenboBao\EasyTDJ\JingDong\Request
- */
-class JdUnionPromotionBysubunionidGetRequest implements RequestInterface
+class JDUnionidPromotionGetRequest implements RequestInterface
 {
     /**
-     * 通过subUnionId获取推广链接【申请】
-     * @url https://union.jd.com/#/openplatform/api/634
+     * 创建推广链接
+     * @url https://doc.apith.cn/#/api/jdunion/getByUnionidPromotion
      * @var string
      */
-    private $method = 'jd.union.open.promotion.bysubunionid.get';
-
-    /**
-     * 子联盟ID（需要联系运营开通权限才能拿到数据）
-     * @var
-     */
-    private $subUnionId;
+    private $method = 'getByUnionidPromotion';
 
     /**
      * 推广物料链接，建议链接使用微Q前缀，能较好适配微信手Q页面
@@ -37,6 +26,12 @@ class JdUnionPromotionBysubunionidGetRequest implements RequestInterface
     private $positionId;
 
     /**
+     * 目标推客的联盟ID
+     * @var
+     */
+    private $unionId;
+
+    /**
      * 子帐号身份标识，格式为子站长ID_子站长网站ID_子站长推广位ID
      * @var
      */
@@ -47,22 +42,6 @@ class JdUnionPromotionBysubunionidGetRequest implements RequestInterface
      * @var
      */
     private $couponUrl;
-
-    /**
-     * @return mixed
-     */
-    public function getSubUnionId()
-    {
-        return $this->subUnionId;
-    }
-
-    /**
-     * @param mixed $subUnionId
-     */
-    public function setSubUnionId($subUnionId)
-    {
-        $this->subUnionId = $subUnionId;
-    }
 
     /**
      * @return mixed
@@ -99,6 +78,22 @@ class JdUnionPromotionBysubunionidGetRequest implements RequestInterface
     /**
      * @return mixed
      */
+    public function getUnionId()
+    {
+        return $this->unionId;
+    }
+
+    /**
+     * @param mixed $unionId
+     */
+    public function setUnionId($unionId)
+    {
+        $this->unionId = $unionId;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getPid()
     {
         return $this->pid;
@@ -128,8 +123,6 @@ class JdUnionPromotionBysubunionidGetRequest implements RequestInterface
         $this->couponUrl = $couponUrl;
     }
 
-
-
     /**
      * @return string
      */
@@ -144,19 +137,13 @@ class JdUnionPromotionBysubunionidGetRequest implements RequestInterface
     public function getParamJson()
     {
         $params = [
-            'subUnionId' =>$this->subUnionId,
             'materialId' =>$this->materialId,
             'positionId' =>$this->positionId,
+            'unionId' =>$this->unionId,
             'pid' =>$this->pid,
             'couponUrl' =>$this->couponUrl,
         ];
 
-        return json_encode([
-            'promotionCodeReq' => array_filter ($params, function ($val) {
-                return $val != null;
-            })
-        ]);
+        return array_filter($params);
     }
-
-
 }
