@@ -77,8 +77,7 @@ class Application
         $header = $this->getHeaders();
 
         $resp = $this->curl_get($requestUrl, $header);
-        $respArr = json_decode($resp, true);
-        return $respArr;
+        return $resp;
     }
 
     /**
