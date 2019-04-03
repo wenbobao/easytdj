@@ -74,7 +74,7 @@ class Application
 
         $requestUrl = substr($requestUrl, 0, -1);
 
-        $header = $this->setVipParameter($requestUrl);
+        $header = $this->getHeaders();
 
         $resp = $this->curl_get($requestUrl, $header);
         $respArr = json_decode($resp, true);
@@ -87,23 +87,20 @@ class Application
      * @param $timestamp
      * @return string
      */
-    protected function setVipParameter($url)
+    protected function getHeaders()
     {
-        $urls = \parse_url($url);
-        $dateTime = \gmdate("D, d M Y H:i:s T");
         $SecretId = $this->appKey;
         $SecretKey = $this->appSecret;
-        //参与签名计算的的两个参数(date和source)
-        $srcStr = "date: " . $dateTime . "\n" . "source: " . $urls['host'];
-        $Authen = 'hmac id="' . $SecretId . '", algorithm="hmac-sha1", headers="date source", signature="';
-        $signStr = base64_encode(hash_hmac('sha1', $srcStr, $SecretKey, true));
-        $Authen = $Authen . $signStr . "\"";
+
+        $dateTime = gmdate("D, d M Y H:i:s T");
+
+        $signature = base64_encode(hash_hmac('sha1', "date: " . $dateTime , $SecretKey, true));
+        $authorization = 'hmac id="' . $SecretId . '", algorithm="hmac-sha1", headers="date", signature="'.$signature.'"';
+
         // 默认curl的 header
         $headers = [
-            'Accept:text/html, */*; q=0.01',
-            'Source: ' . $urls['host'],
             'Date: ' . $dateTime,
-            'Authorization: ' . $Authen
+            'Authorization: ' . $authorization
         ];
         return $headers;
     }
@@ -117,21 +114,21 @@ class Application
      */
     public function curl_get($url, $header = [])
     {
-        $ch = \curl_init();
-        \curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-        // https请求 不验证证书和hosts
-        \curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-        \curl_setopt($ch, CURLOPT_URL, $url);
-        \curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);// 要求结果为字符串且输出到屏幕上
-        if (!empty($header)) {
-            \curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+        $data = curl_exec($ch);
+
+        if (curl_errno($ch)) {
+            return curl_error($ch);
         } else {
-            \curl_setopt($ch, CURLOPT_HEADER, 0); // 不要http header 加快效率
+            curl_close($ch);
+            return $data;
         }
-        \curl_setopt($ch, CURLOPT_TIMEOUT, 15);
-        $output = curl_exec($ch);
-        curl_close($ch);
-        return $output;
     }
 
 }
