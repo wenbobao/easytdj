@@ -22,6 +22,11 @@ return [
         'app_key' => env ('JD_APP_KEY', 'APP KEY'),
         'app_secret' => env ('JD_APP_SECRET', 'APP SECRET'),
         'format' => 'json',
+    ],
+    'apith' => [
+        'app_key' => env ('APITH_APP_KEY', 'APP KEY'),
+        'app_secret' => env ('APITH_APP_SECRET', 'APP SECRET'),
+        'format' => 'json',
     ]
 
 ];

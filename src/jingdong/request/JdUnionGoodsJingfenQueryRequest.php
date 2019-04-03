@@ -170,7 +170,7 @@ class JdUnionGoodsJingfenQueryRequest implements RequestInterface
         ];
 
         return json_encode([
-            'goodsReq' => array_filter ($params, function ($val) {
+            'goodsReq' => array_filter($params, function ($val) {
                 return $val != null;
             })
         ]);
