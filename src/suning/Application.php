@@ -8,7 +8,7 @@ class Application
 
     public $appSecret;
 
-    public $serverUrl = "http://openpre.cnsuning.com/api/http/sopRequest";
+    public $serverUrl = "https://open.suning.com/api/http/sopRequest";
 
     public $format = "json";
 
