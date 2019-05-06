@@ -9,23 +9,28 @@
  */
 return [
     'taobao' => [
-        'app_key' => env ('TAOBAO_APP_KEY', 'APP KEY'),
-        'app_secret' => env ('TAOBAO_APP_SECRET', 'APP SECRET'),
+        'app_key' => env('TAOBAO_APP_KEY', 'APP KEY'),
+        'app_secret' => env('TAOBAO_APP_SECRET', 'APP SECRET'),
         'format' => 'json',
     ],
     'pinduoduo' => [
-        'client_id' => env ('PDD_CLIENT_ID', 'APP KEY'),
-        'client_secret' => env ('PDD_CLIENT_SECRET', 'APP SECRET'),
+        'client_id' => env('PDD_CLIENT_ID', 'APP KEY'),
+        'client_secret' => env('PDD_CLIENT_SECRET', 'APP SECRET'),
         'format' => 'json',
     ],
     'jingdong' => [
-        'app_key' => env ('JD_APP_KEY', 'APP KEY'),
-        'app_secret' => env ('JD_APP_SECRET', 'APP SECRET'),
+        'app_key' => env('JD_APP_KEY', 'APP KEY'),
+        'app_secret' => env('JD_APP_SECRET', 'APP SECRET'),
         'format' => 'json',
     ],
     'apith' => [
-        'app_key' => env ('APITH_APP_KEY', 'APP KEY'),
-        'app_secret' => env ('APITH_APP_SECRET', 'APP SECRET'),
+        'app_key' => env('APITH_APP_KEY', 'APP KEY'),
+        'app_secret' => env('APITH_APP_SECRET', 'APP SECRET'),
+        'format' => 'json',
+    ],
+    'suning' => [
+        'app_key' => env('SUNING_APP_KEY', 'APP KEY'),
+        'app_secret' => env('SUNING_APP_SECRET', 'APP SECRET'),
         'format' => 'json',
     ]
 

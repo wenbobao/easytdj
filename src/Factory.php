@@ -6,6 +6,7 @@ use WenboBao\EasyTDJ\TaoBao\Application as TaoBao;
 use WenboBao\EasyTDJ\PinDuoDuo\Application as PinDuoDuo;
 use WenboBao\EasyTDJ\JingDong\Application as JingDong;
 use WenboBao\EasyTDJ\Apith\Application as Apith;
+use WenboBao\EasyTDJ\SuNing\Application as SuNing;
 
 /**
  * Class Factory.
@@ -30,7 +31,7 @@ class Factory
     public static function __callStatic($name, $arguments)
     {
         $obj = self::getInstance();
-        return $obj->make ($name, ...$arguments);
+        return $obj->make($name, ...$arguments);
     }
 
 
@@ -64,7 +65,7 @@ class Factory
      */
     public function make($name, array $config = [])
     {
-        if (!in_array($name, ['taobao', 'jingdong', 'pinduoduo', 'apith'])) {
+        if (!in_array($name, ['taobao', 'jingdong', 'pinduoduo', 'apith', 'suning'])) {
             throw  new \InvalidArgumentException('static method is not exists');
         }
 
@@ -112,6 +113,12 @@ class Factory
             }
             return array_only($config, ['app_key', 'app_secret', 'format']);
         }
+        if ($name == "suning") {
+            if (!array_key_exists('app_key', $config) || !array_key_exists('app_secret', $config)) {
+                throw new \InvalidArgumentException('The apith client requires app_key and app_secret.');
+            }
+            return array_only($config, ['app_key', 'app_secret', 'format']);
+        }
     }
 
     /**
@@ -147,6 +154,13 @@ class Factory
         if ($name == "apith") {
             $c = new Apith();
             $c->appKey = $config['app_key'];
+            $c->appSecret = $config['app_secret'];
+            $c->format = isset($config['format']) ? $config['format'] : 'json';
+            return $c;
+        }
+        if ($name == "suning") {
+            $c = new SuNing();
+            $c->appkey = $config['app_key'];
             $c->appSecret = $config['app_secret'];
             $c->format = isset($config['format']) ? $config['format'] : 'json';
             return $c;
