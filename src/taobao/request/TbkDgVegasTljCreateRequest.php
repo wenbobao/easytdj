@@ -13,14 +13,14 @@ use WenboBao\EasyTDJ\TaoBao\RequestCheckUtil;
 class TbkDgVegasTljCreateRequest
 {
     /**
-     * 妈妈广告位Id
-     **/
-    private $adzoneId;
-
-    /**
      * CPS佣金计划类型
      **/
     private $campaignType;
+
+    /**
+     * 妈妈广告位Id
+     **/
+    private $adzoneId;
 
     /**
      * 宝贝id
@@ -28,19 +28,30 @@ class TbkDgVegasTljCreateRequest
     private $itemId;
 
     /**
+     * 淘礼金总个数
+     **/
+    private $totalNum;
+
+    /**
      * 淘礼金名称，最大10个字符
      **/
     private $name;
+
+    /**
+     * 单用户累计中奖次数上限
+     **/
+    private $userTotalWinNumLimit;
+
+    /**
+     * 安全开关
+     **/
+    private $securitySwitch;
 
     /**
      * 单个淘礼金面额，单位元
      **/
     private $perFace;
 
-    /**
-     * 安全开关
-     **/
-    private $securitySwitch;
 
     /**
      * 发放结束时间
@@ -53,14 +64,19 @@ class TbkDgVegasTljCreateRequest
     private $sendStartTime;
 
     /**
-     * 淘礼金总个数
+     * 使用结束日期。如果是结束时间模式为相对时间，时间格式为1-7直接的整数, 例如，1（相对领取时间1天）； 如果是绝对时间，格式为yyyy-MM-dd，例如，2019-01-29，表示到2019-01-29 23:59:59结束
      **/
-    private $totalNum;
+    private $useEndTime;
 
     /**
-     * 单用户累计中奖次数上限
+     * 结束日期的模式,1:相对时间，2:绝对时间
      **/
-    private $userTotalWinNumLimit;
+    private $useEndTimeMode;
+
+    /**
+     * 使用开始日期。相对时间，无需填写，以用户领取时间作为使用开始时间。绝对时间，格式 yyyy-MM-dd，例如，2019-01-29，表示从2019-01-29 00:00:00 开始
+     **/
+    private $useStartTime;
 
     private $apiParas = array();
 
@@ -173,6 +189,58 @@ class TbkDgVegasTljCreateRequest
     {
         return $this->userTotalWinNumLimit;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUseEndTime()
+    {
+        return $this->useEndTime;
+    }
+
+    /**
+     * @param mixed $useEndTime
+     */
+    public function setUseEndTime($useEndTime)
+    {
+        $this->useEndTime = $useEndTime;
+        $this->apiParas["use_end_time"] = $useEndTime;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUseEndTimeMode()
+    {
+        return $this->useEndTimeMode;
+    }
+
+    /**
+     * @param mixed $useEndTimeMode
+     */
+    public function setUseEndTimeMode($useEndTimeMode)
+    {
+        $this->useEndTimeMode = $useEndTimeMode;
+        $this->apiParas["use_end_time_mode"] = $useEndTimeMode;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUseStartTime()
+    {
+        return $this->useStartTime;
+    }
+
+    /**
+     * @param mixed $useStartTime
+     */
+    public function setUseStartTime($useStartTime)
+    {
+        $this->useStartTime = $useStartTime;
+        $this->apiParas["use_start_time"] = $useStartTime;
+    }
+
 
     public function getApiMethodName()
     {
