@@ -14,7 +14,7 @@ class Application
 {
     private static $instance;
 
-    private $gatewayUrl = 'https://jd.vip.apith.cn/unionv2';
+    private $gatewayUrl = 'https://jd1.vip.apith.cn/unionv2';
 
     public $appKey;
 
