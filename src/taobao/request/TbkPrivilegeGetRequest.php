@@ -18,14 +18,14 @@ class TbkPrivilegeGetRequest
     private $itemId;
 
     /**
-     * 1：PC，2：无线，默认：１
-     **/
-    private $platform;
-
-    /**
      * 推广位id，mm_xx_xx_xx pid三段式中的第三段
      **/
     private $adzoneId;
+
+    /**
+     * 1：PC，2：无线，默认：１
+     **/
+    private $platform;
 
     /**
      * 备案的网站id, mm_xx_xx_xx pid三段式中的第二段
@@ -36,6 +36,52 @@ class TbkPrivilegeGetRequest
      * 渠道关系ID，仅适用于渠道推广场景
      **/
     private $relationId;
+
+
+    /**
+     * 会员运营ID
+     **/
+    private $specialId;
+
+    /**
+     * @return mixed
+     */
+    public function getSpecialId()
+    {
+        return $this->specialId;
+    }
+
+    /**
+     * @param mixed $specialId
+     */
+    public function setSpecialId($specialId)
+    {
+        $this->specialId = $specialId;
+        $this->apiParas["special_id"] = $specialId;
+    }
+
+    /**
+     * 淘宝客外部用户标记，如自身系统账户ID；微信ID等
+     **/
+    private $externalId;
+
+    /**
+     * @return mixed
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @param mixed $externalId
+     */
+    public function setExternalId($externalId)
+    {
+        $this->externalId = $externalId;
+        $this->apiParas["external_id"] = $externalId;
+    }
+
 
     private $apiParas = array();
 

@@ -11,10 +11,15 @@ use WenboBao\EasyTDJ\TaoBao\RequestCheckUtil;
 class TbkScPublisherInfoGetRequest
 {
 	/** 
-	 * 类型，必选 1:渠道备案
+	 * 	类型，必选 1:渠道信息；2:会员信息
 	 **/
 	private $infoType;
-	
+
+    /**
+     * 渠道备案 - 渠道关系ID
+     **/
+    private $relationId;
+
 	/** 
 	 * 第几页
 	 **/
@@ -26,14 +31,54 @@ class TbkScPublisherInfoGetRequest
 	private $pageSize;
 	
 	/** 
-	 * 渠道推广的物料类型
+	 * 备案的场景：common（通用备案），etao（一淘备案），minietao（一淘小程序备案），offlineShop（线下门店备案），offlinePerson（线下个人备案）。如不填默认common。查询会员信息只需填写common即可
 	 **/
 	private $relationApp;
-	
-	/** 
-	 * 渠道备案 - 渠道关系ID
-	 **/
-	private $relationId;
+
+    /**
+     * 会员运营ID
+     **/
+    private $specialId;
+
+    /**
+     * @return mixed
+     */
+    public function getSpecialId()
+    {
+        return $this->specialId;
+    }
+
+    /**
+     * @param mixed $specialId
+     */
+    public function setSpecialId($specialId)
+    {
+        $this->specialId = $specialId;
+        $this->apiParas["special_id"] = $specialId;
+    }
+
+    /**
+     * 淘宝客外部用户标记，如自身系统账户ID；微信ID等
+     **/
+    private $externalId;
+
+    /**
+     * @return mixed
+     */
+    public function getExternalId()
+    {
+        return $this->externalId;
+    }
+
+    /**
+     * @param mixed $externalId
+     */
+    public function setExternalId($externalId)
+    {
+        $this->externalId = $externalId;
+        $this->apiParas["external_id"] = $externalId;
+    }
+
 	
 	private $apiParas = array();
 	
