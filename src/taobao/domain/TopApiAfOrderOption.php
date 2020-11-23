@@ -68,4 +68,5 @@ class TopApiAfOrderOption
      **/
     public $punish_status;
 }
+
 ?>
