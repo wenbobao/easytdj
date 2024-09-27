@@ -13,11 +13,6 @@ class DdkGoodsDetailRequest implements RequestInterface
      */
     private $type = 'pdd.ddk.goods.detail';
 
-    /**
-     * 商品ID，仅支持单个查询。例如：[123456]
-     * @var
-     */
-    private $goodsIdList;
 
     /**
      * 推广位ID
@@ -37,11 +32,45 @@ class DdkGoodsDetailRequest implements RequestInterface
      */
     private $zsduoId;
 
+
     /**
-     * 佣金优惠券对应推广类型，3：专属 4：招商
-     * @var
+     * @return mixed
      */
-    private $planType;
+    public function getGoodsSign()
+    {
+        return $this->goodsSign;
+    }
+
+    /**
+     * @param mixed $goodsSign
+     */
+    public function setGoodsSign($goodsSign)
+    {
+        $this->goodsSign = $goodsSign;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSearchId()
+    {
+        return $this->searchId;
+    }
+
+    /**
+     * @param mixed $searchId
+     */
+    public function setSearchId($searchId)
+    {
+        $this->searchId = $searchId;
+    }
+
+
+    private $goodsSign;
+
+
+    // 搜索id，建议填写，提高收益。来自pdd.ddk.goods.recommend.get、pdd.ddk.goods.search、pdd.ddk.top.goods.list.query等接口
+    private $searchId;
 
     public function setType($type)
     {
@@ -51,16 +80,6 @@ class DdkGoodsDetailRequest implements RequestInterface
     public function getType()
     {
         return $this->type;
-    }
-
-    public function setGoodsIdList($goodsIdList)
-    {
-        $this->goodsIdList = $goodsIdList;
-    }
-
-    public function getGoodsIdList()
-    {
-        return $this->goodsIdList;
     }
 
     /**
@@ -111,31 +130,16 @@ class DdkGoodsDetailRequest implements RequestInterface
         $this->zsduoId = $zsduoId;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPlanType()
-    {
-        return $this->planType;
-    }
-
-    /**
-     * @param mixed $planType
-     */
-    public function setPlanType($planType)
-    {
-        $this->planType = $planType;
-    }
 
     public function getParams()
     {
         $params = [
             'type' => $this->type,
-            'goods_id_list' => $this->goodsIdList,
-            'pid' => $this->pid,
+            'goods_sign' => $this->goodsSign,
             'custom_parameters' => $this->customParameters,
+            'pid' => $this->pid,
+            'search_id' => $this->searchId,
             'zs_duo_id' => $this->zsduoId,
-            'plan_type' => $this->planType
         ];
         return array_filter($params);
     }
