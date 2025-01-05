@@ -13,108 +13,103 @@ class DdkGoodsPromotionUrlGenerateRequest implements  RequestInterface
      */
     private $type = 'pdd.ddk.goods.promotion.url.generate';
 
-    /**
-     * 推广位ID
-     * @var
+
+    /*
+     * @JsonProperty(LONG, "cash_gift_id")
      */
-    private $pid;
+    private $cashGiftId;
+
+    /*
+ * @JsonProperty(String, "cash_gift_name")
+ */
+    private $cashGiftName;
 
     /**
-     * 商品ID，仅支持单个查询
-     * @var
-     */
-    private $goodsIdList;
-
-    /**
-     * 是否生成短链接，true-是，false-否
-     * @var
-     */
-    private $generateShortUrl;
-
-    /**
-     * true--生成多人团推广链接 false--生成单人团推广链接（默认false）1、单人团推广链接：用户访问单人团推广链接，可直接购买商品无需拼团。2、多人团推广链接：用户访问双人团推广链接开团，若用户分享给他人参团，则开团者和参团者的佣金均结算给推手
-     * @var
-     */
-    private $multiGroup;
-
-    /**
-     * 自定义参数，为链接打上自定义标签。自定义参数最长限制64个字节。
-     * @var
+     * @JsonProperty(String, "custom_parameters")
      */
     private $customParameters;
 
     /**
-     * 是否开启订单拉新，true表示开启（订单拉新奖励特权仅支持白名单，请联系工作人员开通）
-     * @var
+     * @JsonProperty(Boolean, "generate_authority_url")
      */
-    private $pullNew;
+    private $generateAuthorityUrl;
 
     /**
-     * 是否生成唤起微信客户端链接，true-是，false-否，默认false
-     * @var
+     * @JsonProperty(Boolean, "generate_mall_collect_coupon")
      */
-    private $generateWeappWebview;
+    private $generateMallCollectCoupon;
 
     /**
-     * 招商多多客ID
-     * @var
+     * @JsonProperty(Boolean, "generate_qq_app")
      */
-    private $zsduoId;
+    private $generateQqApp;
 
     /**
-     * 是否生成小程序推广
-     * @var
+     * @JsonProperty(Boolean, "generate_schema_url")
+     */
+    private $generateSchemaUrl;
+
+    /**
+     * @JsonProperty(Boolean, "generate_short_url")
+     */
+    private $generateShortUrl;
+
+    /**
+     * @JsonProperty(Boolean, "generate_we_app")
      */
     private $generateWeApp;
 
-    public function setType($type)
-    {
-        $this->type = $type;
+    /**
+     * @JsonProperty(String[], "goods_sign_list")
+     */
+    private $goodsSignList;
+
+    /**
+     * @JsonProperty(String, "material_id")
+     */
+    private $materialId;
+
+    /**
+     * @JsonProperty(Boolean, "multi_group")
+     */
+    private $multiGroup;
+
+    /**
+     * @JsonProperty(String, "p_id")
+     */
+    private $pId;
+
+    /**
+     * @JsonProperty(String, "search_id")
+     */
+    private $searchId;
+
+    /**
+     * @JsonProperty(Long, "zs_duo_id")
+     */
+    private $zsDuoId;
+
+    /**
+     * @JsonProperty(Boolean, "generate_short_link")
+     */
+    private $generateShortLink;
+
+    /**
+     * @JsonProperty(Boolean, "generate_weixin_code")
+     */
+    private $generateWeixinCode;
+
+
+    public function setCashGiftId($cashGiftId) {
+        $this->cashGiftId = $cashGiftId;
     }
 
-    public function getType()
+    /**
+     * @param mixed $cashGiftName
+     */
+    public function setCashGiftName($cashGiftName): void
     {
-        return $this->type;
-    }
-
-    public function setPid($pid)
-    {
-        $this->pid = $pid;
-    }
-
-    public function getPid()
-    {
-        return $this->pid;
-    }
-
-    public function setGoodsIdList($goodsIdList)
-    {
-        $this->goodsIdList = $goodsIdList;
-    }
-
-    public function getGoodsIdList()
-    {
-        return $this->goodsIdList;
-    }
-
-    public function setGenerateShortUrl($generateShortUrl)
-    {
-        $this->generateShortUrl = $generateShortUrl;
-    }
-
-    public function getGenerateShortUrl()
-    {
-        return $this->generateShortUrl;
-    }
-
-    public function setMultiGroup($multiGroup)
-    {
-        $this->multiGroup = $multiGroup;
-    }
-
-    public function getMultiGroup()
-    {
-        return $this->multiGroup;
+        $this->cashGiftName = $cashGiftName;
     }
 
     public function setCustomParameters($customParameters)
@@ -122,19 +117,29 @@ class DdkGoodsPromotionUrlGenerateRequest implements  RequestInterface
         $this->customParameters = $customParameters;
     }
 
-    public function getCustomParameters()
+    public function setGenerateAuthorityUrl($generateAuthorityUrl)
     {
-        return $this->customParameters;
+        $this->generateAuthorityUrl = $generateAuthorityUrl;
     }
 
-    public function setPullNew($pullNew)
+    public function setGenerateMallCollectCoupon($generateMallCollectCoupon)
     {
-        $this->pullNew = $pullNew;
+        $this->generateMallCollectCoupon = $generateMallCollectCoupon;
     }
 
-    public function getPullNew()
+    public function setGenerateQqApp($generateQqApp)
     {
-        return $this->pullNew;
+        $this->generateQqApp = $generateQqApp;
+    }
+
+    public function setGenerateSchemaUrl($generateSchemaUrl)
+    {
+        $this->generateSchemaUrl = $generateSchemaUrl;
+    }
+
+    public function setGenerateShortUrl($generateShortUrl)
+    {
+        $this->generateShortUrl = $generateShortUrl;
     }
 
     public function setGenerateWeappWebview($generateWeappWebview)
@@ -142,19 +147,9 @@ class DdkGoodsPromotionUrlGenerateRequest implements  RequestInterface
         $this->generateWeappWebview = $generateWeappWebview;
     }
 
-    public function getGenerateWeappWebview()
+    public function setGenerateWeiboappWebview($generateWeiboappWebview)
     {
-        return $this->generateWeappWebview;
-    }
-
-    public function setZsduoId($zsduoId)
-    {
-        $this->zsduoId = $zsduoId;
-    }
-
-    public function getZsduoId()
-    {
-        return $this->zsduoId;
+        $this->generateWeiboappWebview = $generateWeiboappWebview;
     }
 
     public function setGenerateWeApp($generateWeApp)
@@ -162,24 +157,77 @@ class DdkGoodsPromotionUrlGenerateRequest implements  RequestInterface
         $this->generateWeApp = $generateWeApp;
     }
 
-    public function getGenerateWeApp()
+    public function setGoodsSignList($goodsSignList)
     {
-        return $this->generateWeApp;
+        $this->goodsSignList = $goodsSignList;
     }
+
+    public function setMultiGroup($multiGroup)
+    {
+        $this->multiGroup = $multiGroup;
+    }
+
+    public function setPId($pId)
+    {
+        $this->pId = $pId;
+    }
+
+    public function setSearchId($searchId)
+    {
+        $this->searchId = $searchId;
+    }
+
+    public function setZsDuoId($zsDuoId)
+    {
+        $this->zsDuoId = $zsDuoId;
+    }
+
+    /**
+     * @param mixed $generateShortLink
+     */
+    public function setGenerateShortLink($generateShortLink): void
+    {
+        $this->generateShortLink = $generateShortLink;
+    }
+
+    /**
+     * @param mixed $generateWeixinCode
+     */
+    public function setGenerateWeixinCode($generateWeixinCode): void
+    {
+        $this->generateWeixinCode = $generateWeixinCode;
+    }
+
+    /**
+     * @param mixed $materialId
+     */
+    public function setMaterialId($materialId): void
+    {
+        $this->materialId = $materialId;
+    }
+
 
     public function getParams()
     {
         $params = [
-            'type'                   => $this->type,
-            'p_id'                   => $this->pid,
-            'goods_id_list'          => $this->goodsIdList,
-            'generate_short_url'     => $this->generateShortUrl,
-            'multi_group'            => $this->multiGroup,
-            'custom_parameters'      => $this->customParameters,
-            'pull_new'               => $this->pullNew,
-            'generate_weapp_webview' => $this->generateWeappWebview,
-            'zs_duo_id'              => $this->zsduoId,
-            'generate_we_app'        => $this->generateWeApp,
+            'type' => $this->type,
+            'cash_gift_id' => $this->cashGiftId,
+            'cash_gift_name' => $this->cashGiftName,
+            'custom_parameters' => $this->customParameters,
+            'generate_authority_url' => $this->generateAuthorityUrl,
+            'generate_mall_collect_coupon' => $this->generateMallCollectCoupon,
+            'generate_qq_app' => $this->generateQqApp,
+            'generate_schema_url' => $this->generateSchemaUrl,
+            'generate_short_url' => $this->generateShortUrl,
+            'generate_we_app' => $this->generateWeApp,
+            'goods_sign_list' => $this->goodsSignList,
+            'material_id' => $this->materialId,
+            'multi_group' => $this->multiGroup,
+            'p_id' => $this->pId,
+            'search_id' => $this->searchId,
+            'generate_short_link' => $this->generateShortLink,
+            'generate_weixin_code' => $this->generateWeixinCode,
+            'zs_duo_id' => $this->zsDuoId,
         ];
         return array_filter($params);
     }

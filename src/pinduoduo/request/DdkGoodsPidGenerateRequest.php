@@ -24,6 +24,16 @@ class DdkGoodsPidGenerateRequest implements  RequestInterface
      */
     private $pIdNameList;
 
+    private $mediaId;
+
+    /**
+     * @param mixed $mediaId
+     */
+    public function setMediaId($mediaId): void
+    {
+        $this->mediaId = $mediaId;
+    }
+
     public function setType($type)
     {
         $this->type = $type;
@@ -60,6 +70,7 @@ class DdkGoodsPidGenerateRequest implements  RequestInterface
             'type'           => $this->type,
             'number'         => $this->number,
             'p_id_name_list' => $this->pIdNameList,
+            'media_id' => $this->mediaId,
         ];
         return array_filter($params);
     }
