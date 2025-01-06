@@ -19,47 +19,7 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
      */
     private $type = 'pdd.ddk.rp.prom.url.generate';
 
-    /**
-     * 推广位ID
-     * @var
-     */
-    private $pid;
-
-    /**
-     * 是否生成短链接，true-是，false-否
-     * @var
-     */
-    private $generateShortUrl;
-
-    /**
-     * 自定义参数，为链接打上自定义标签。自定义参数最长限制64个字节。
-     * @var
-     */
-    private $customParameters;
-
-    /**
-     * 是否生成唤起微信客户端链接，true-是，false-否，默认false
-     * @var
-     */
-    private $generateWeappWebview;
-
-    /**
-     * 唤起微信app推广短链接
-     * @var
-     */
-    private $weappWebviewShortUrl;
-
-    /**
-     * 唤起微信app推广链接
-     * @var
-     */
-    private $weappWebviewUrl;
-    /**
-     * 是否生成小程序推广
-     * @var
-     */
-    private $generateWeApp;
-
+ 
     public function setType($type)
     {
         $this->type = $type;
@@ -70,24 +30,64 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
         return $this->type;
     }
 
-    public function setPid($pid)
-    {
-        $this->pid = $pid;
-    }
+    /**
+     * @JsonProperty(Integer, "channel_type")
+     */
+    private $channelType;
 
-    public function getPid()
-    {
-        return $this->pid;
-    }
+    /**
+     * @JsonProperty(String, "custom_parameters")
+     */
+    private $customParameters;
 
-    public function setGenerateShortUrl($generateShortUrl)
-    {
-        $this->generateShortUrl = $generateShortUrl;
-    }
+    /**
+     * @JsonProperty(\Com\Pdd\Pop\Sdk\Api\Request\PddDdkRpPromUrlGenerateRequest_DiyLotteryParam, "diy_lottery_param")
+     */
+    private $diyLotteryParam;
 
-    public function getGenerateShortUrl()
+    /**
+     * @JsonProperty(\Com\Pdd\Pop\Sdk\Api\Request\PddDdkRpPromUrlGenerateRequest_DiyRedPacketParam, "diy_red_packet_param")
+     */
+    private $diyRedPacketParam;
+
+    /**
+     * @JsonProperty(Boolean, "generate_qq_app")
+     */
+    private $generateQqApp;
+
+    /**
+     * @JsonProperty(Boolean, "generate_schema_url")
+     */
+    private $generateSchemaUrl;
+
+    /**
+     * @JsonProperty(Boolean, "generate_short_url")
+     */
+    private $generateShortUrl;
+
+    /**
+     * @JsonProperty(Boolean, "generate_we_app")
+     */
+    private $generateWeApp;
+
+    /**
+     * @JsonProperty(List<String>, "p_id_list")
+     */
+    private $pIdList;
+
+    /**
+     * @JsonProperty(Long, "amount")
+     */
+    private $amount;
+
+    /**
+     * @JsonProperty(Long, "scratch_card_amount")
+     */
+    private $scratchCardAmount;
+
+    public function setChannelType($channelType)
     {
-        return $this->generateShortUrl;
+        $this->channelType = $channelType;
     }
 
     public function setCustomParameters($customParameters)
@@ -95,19 +95,29 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
         $this->customParameters = $customParameters;
     }
 
-    public function getCustomParameters()
+    public function setDiyLotteryParam($diyLotteryParam)
     {
-        return $this->customParameters;
+        $this->diyLotteryParam = $diyLotteryParam;
     }
 
-    public function setGenerateWeappWebview($generateWeappWebview)
+    public function setDiyRedPacketParam($diyRedPacketParam)
     {
-        $this->generateWeappWebview = $generateWeappWebview;
+        $this->diyRedPacketParam = $diyRedPacketParam;
     }
 
-    public function getGenerateWeappWebview()
+    public function setGenerateQqApp($generateQqApp)
     {
-        return $this->generateWeappWebview;
+        $this->generateQqApp = $generateQqApp;
+    }
+
+    public function setGenerateSchemaUrl($generateSchemaUrl)
+    {
+        $this->generateSchemaUrl = $generateSchemaUrl;
+    }
+
+    public function setGenerateShortUrl($generateShortUrl)
+    {
+        $this->generateShortUrl = $generateShortUrl;
     }
 
     public function setGenerateWeApp($generateWeApp)
@@ -115,55 +125,34 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
         $this->generateWeApp = $generateWeApp;
     }
 
-    public function getGenerateWeApp()
+    public function setPIdList($pIdList)
     {
-        return $this->generateWeApp;
+        $this->pIdList = $pIdList;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getWeappWebviewShortUrl()
+    public function setAmount($amount)
     {
-        return $this->weappWebviewShortUrl;
+        $this->amount = $amount;
     }
 
-    /**
-     * @param mixed $weappWebviewShortUrl
-     */
-    public function setWeappWebviewShortUrl($weappWebviewShortUrl)
+    public function setScratchCardAmount($scratchCardAmount)
     {
-        $this->weappWebviewShortUrl = $weappWebviewShortUrl;
+        $this->scratchCardAmount = $scratchCardAmount;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getWeappWebviewUrl()
-    {
-        return $this->weappWebviewUrl;
-    }
-
-    /**
-     * @param mixed $weappWebviewUrl
-     */
-    public function setWeappWebviewUrl($weappWebviewUrl)
-    {
-        $this->weappWebviewUrl = $weappWebviewUrl;
-    }
-
 
     public function getParams()
     {
         $params = [
             'type' => $this->type,
-            'p_id_list' => $this->pid,
-            'generate_short_url' => $this->generateShortUrl,
+            'amount' => $this->amount,
+            'channel_type' => $this->channelType,
             'custom_parameters' => $this->customParameters,
-            'generate_weapp_webview' => $this->generateWeappWebview,
-            'we_app_web_view_short_url' => $this->weappWebviewShortUrl,
-            'we_app_web_wiew_url' => $this->weappWebviewUrl,
+            'generate_qq_app' => $this->generateQqApp,
+            'generate_schema_url' => $this->generateSchemaUrl,
+            'generate_short_url' => $this->generateShortUrl,
             'generate_we_app' => $this->generateWeApp,
+            'p_id_list' => $this->pIdList,
+            'scratch_card_amount' => $this->scratchCardAmount,
         ];
         return array_filter($params);
     }
