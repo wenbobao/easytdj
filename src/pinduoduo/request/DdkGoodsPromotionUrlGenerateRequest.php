@@ -100,6 +100,16 @@ class DdkGoodsPromotionUrlGenerateRequest implements  RequestInterface
     private $generateWeixinCode;
 
 
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    public function getType()
+    {
+        return $this->type;
+    }
+    
     public function setCashGiftId($cashGiftId) {
         $this->cashGiftId = $cashGiftId;
     }
