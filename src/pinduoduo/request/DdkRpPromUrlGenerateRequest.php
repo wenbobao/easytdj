@@ -19,7 +19,7 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
      */
     private $type = 'pdd.ddk.rp.prom.url.generate';
 
- 
+
     public function setType($type)
     {
         $this->type = $type;
@@ -31,6 +31,11 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
     }
 
     /**
+     * @JsonProperty(Long, "amount")
+     */
+    private $amount;
+
+    /**
      * @JsonProperty(Integer, "channel_type")
      */
     private $channelType;
@@ -40,14 +45,18 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
      */
     private $customParameters;
 
-    /**
-     * @JsonProperty(\Com\Pdd\Pop\Sdk\Api\Request\PddDdkRpPromUrlGenerateRequest_DiyLotteryParam, "diy_lottery_param")
-     */
     private $diyLotteryParam;
 
+    private  $diyOneYuanParam;
+
     /**
-     * @JsonProperty(\Com\Pdd\Pop\Sdk\Api\Request\PddDdkRpPromUrlGenerateRequest_DiyRedPacketParam, "diy_red_packet_param")
+     * @param mixed $diyOneYuanParam
      */
+    public function setDiyOneYuanParam($diyOneYuanParam): void
+    {
+        $this->diyOneYuanParam = $diyOneYuanParam;
+    }
+
     private $diyRedPacketParam;
 
     /**
@@ -76,14 +85,19 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
     private $pIdList;
 
     /**
-     * @JsonProperty(Long, "amount")
-     */
-    private $amount;
-
-    /**
      * @JsonProperty(Long, "scratch_card_amount")
      */
     private $scratchCardAmount;
+
+    private  $diySpRedPacketParam;
+
+    /**
+     * @param mixed $diySpRedPacketParam
+     */
+    public function setDiySpRedPacketParam($diySpRedPacketParam): void
+    {
+        $this->diySpRedPacketParam = $diySpRedPacketParam;
+    }
 
     public function setChannelType($channelType)
     {
@@ -147,12 +161,15 @@ class DdkRpPromUrlGenerateRequest implements RequestInterface
             'amount' => $this->amount,
             'channel_type' => $this->channelType,
             'custom_parameters' => $this->customParameters,
+            'diy_one_yuan_param' => $this->diyOneYuanParam,
+            'diy_red_packet_param' => $this->diyRedPacketParam,
             'generate_qq_app' => $this->generateQqApp,
             'generate_schema_url' => $this->generateSchemaUrl,
             'generate_short_url' => $this->generateShortUrl,
             'generate_we_app' => $this->generateWeApp,
             'p_id_list' => $this->pIdList,
             'scratch_card_amount' => $this->scratchCardAmount,
+            'diy_sp_red_packet_param' => $this->diySpRedPacketParam,
         ];
         return array_filter($params);
     }
