@@ -15,16 +15,26 @@ class DdkGoodsDetailRequest implements RequestInterface
 
 
     /**
+     * 自定义参数，为链接打上自定义标签。自定义参数最长限制64个字节。
+     * @var
+     */
+    private $customParameters;
+
+    private $goods_img_type;
+
+    private $goodsSign;
+
+    private $need_sku_info;
+
+    /**
      * 推广位ID
      * @var
      */
     private $pid;
 
-    /**
-     * 自定义参数，为链接打上自定义标签。自定义参数最长限制64个字节。
-     * @var
-     */
-    private $customParameters;
+
+    // 搜索id，建议填写，提高收益。来自pdd.ddk.goods.recommend.get、pdd.ddk.goods.search、pdd.ddk.top.goods.list.query等接口
+    private $searchId;
 
     /**
      * 招商多多客ID
@@ -64,13 +74,6 @@ class DdkGoodsDetailRequest implements RequestInterface
     {
         $this->searchId = $searchId;
     }
-
-
-    private $goodsSign;
-
-
-    // 搜索id，建议填写，提高收益。来自pdd.ddk.goods.recommend.get、pdd.ddk.goods.search、pdd.ddk.top.goods.list.query等接口
-    private $searchId;
 
     public function setType($type)
     {
@@ -130,6 +133,38 @@ class DdkGoodsDetailRequest implements RequestInterface
         $this->zsduoId = $zsduoId;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getGoodsImgType()
+    {
+        return $this->goods_img_type;
+    }
+
+    /**
+     * @param mixed $goods_img_type
+     */
+    public function setGoodsImgType($goods_img_type)
+    {
+        $this->goods_img_type = $goods_img_type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNeedSkuInfo()
+    {
+        return $this->need_sku_info;
+    }
+
+    /**
+     * @param mixed $need_sku_info
+     */
+    public function setNeedSkuInfo($need_sku_info)
+    {
+        $this->need_sku_info = $need_sku_info;
+    }
+
 
     public function getParams()
     {
@@ -140,6 +175,9 @@ class DdkGoodsDetailRequest implements RequestInterface
             'pid' => $this->pid,
             'search_id' => $this->searchId,
             'zs_duo_id' => $this->zsduoId,
+            'goods_img_type' => $this->goods_img_type,
+            'need_sku_info' => $this->need_sku_info,
+
         ];
         return array_filter($params);
     }

@@ -31,6 +31,12 @@ class DdkGoodsZsUnitUrlGenRequest implements  RequestInterface
      */
     private $customParameters;
 
+    /**
+     * 自定义参数
+     * @var
+     */
+    private $generateShortLink;
+
 
     public function setType($type)
     {
@@ -67,6 +73,22 @@ class DdkGoodsZsUnitUrlGenRequest implements  RequestInterface
         $this->customParameters = $customParameters;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getGenerateShortLink()
+    {
+        return $this->generateShortLink;
+    }
+
+    /**
+     * @param mixed $generateShortLink
+     */
+    public function setGenerateShortLink($generateShortLink)
+    {
+        $this->generateShortLink = $generateShortLink;
+    }
+
 
     public function getParams()
     {
@@ -75,6 +97,7 @@ class DdkGoodsZsUnitUrlGenRequest implements  RequestInterface
             'pid'                   => $this->pid,
             'custom_parameters' => $this->customParameters,
             'source_url'        => $this->source_url,
+            'generate_short_link'        => $this->generateShortLink,
         ];
         return array_filter($params);
     }

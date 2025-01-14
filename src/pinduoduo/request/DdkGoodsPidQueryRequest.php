@@ -24,6 +24,43 @@ class DdkGoodsPidQueryRequest implements  RequestInterface
      */
     private $pageSize;
 
+    private $pidList;
+
+    private $status;
+
+    /**
+     * @return mixed
+     */
+    public function getPidList()
+    {
+        return $this->pidList;
+    }
+
+    /**
+     * @param mixed $pidList
+     */
+    public function setPidList($pidList)
+    {
+        $this->pidList = $pidList;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+
     public function setType($type)
     {
         $this->type = $type;
@@ -59,7 +96,9 @@ class DdkGoodsPidQueryRequest implements  RequestInterface
         $params = [
             'type'      => $this->type,
             'page'      => $this->page,
-            'page_size' => $this->pageSize
+            'page_size' => $this->pageSize,
+            'pid_list' => $this->pidList,
+            'status' => $this->status
         ];
         return array_filter($params);
     }
